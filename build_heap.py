@@ -39,6 +39,8 @@ def sort_heap(data):
             data[mini]=swap
             swaps.append((current,mini))
             current=mini
+        else:
+            break
     return swaps
 
 def main():
