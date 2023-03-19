@@ -8,7 +8,7 @@ def build_heap(data):
     for i in range(n):
         current=i
         while current>0:
-            par=(current=1)//2
+            par=(current-1)//2
             if data[current]>data[par]:
                 break
             swap=data[current]
