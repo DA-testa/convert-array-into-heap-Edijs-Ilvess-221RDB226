@@ -1,7 +1,8 @@
 # python3
 
-def build_heap(data, n):
+def build_heap(data):
     swaps = []
+    n==len(data)
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
     for i in range(n//2,-1,-1):
@@ -53,7 +54,7 @@ def main():
 
     # calls function to assess the data 
     # and give back all swaps
-    swaps = build_heap(data, n)
+    swaps = build_heap(data)
 
     # TODO: output how many swaps were made, 
     # this number should be less than 4n (less than 4*len(data))
