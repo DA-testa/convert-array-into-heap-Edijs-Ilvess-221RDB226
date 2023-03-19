@@ -18,16 +18,15 @@ def build_heap(data):
             data[i]=data[current]
             data[current]=swap
             swaps.append((i, current))
-            while current>0:
-                x=(current-1)//2
-                if data[current]>data[x]:
-                    swap = data[x]
-                    data[x]=data[current]
-                    data[current]=swap
-                    swaps.append((x,current))
-                    current=x
-                else:
-                    break
+            current=i
+            first_con=2*current+1
+            second_con=2*current+2
+            if first_con<n and data[first_con]>data[current]:
+                current=first_con
+            if second_con<n and data[second_con]>data[current]:
+                current=second_con
+            else:
+                break
     return swaps
 
 
@@ -42,7 +41,7 @@ def main():
         data = list(map(int, input().split()))
     elif input_IF[0]=="F":
         tests=input()
-        with open("test/"+tests) as f:
+        with open("tests/"+tests) as f:
             n = int(f.readline())
             data = list(map(int, f.readline().split()))
     else:
