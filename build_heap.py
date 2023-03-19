@@ -29,6 +29,7 @@ def sort_heap(data):
     while True:
         first_con=2*current+1
         second_con=2*current+2
+        mini=current
         if first_con<i and data[first_con]<data[mini]:
             mini=first_con
         if second_con<i and data[second_con]<data[mini]:
