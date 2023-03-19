@@ -63,3 +63,5 @@ def main():
     print(len(swaps))
     for i, j in swaps:
         print(i, j)
+        
+    print(" ".join(str(x) for x in data))
