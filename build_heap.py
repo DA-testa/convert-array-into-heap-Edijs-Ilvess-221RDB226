@@ -64,4 +64,5 @@ def main():
     for i, j in swaps:
         print(i, j)
         
-    print(" ".join(str(x) for x in data))
+if __name__ == "__main__":
+    main()
