@@ -9,22 +9,22 @@ def build_heap(data):
         current=i
         first_con=2*current+1
         second_con=2*current+2
-        while first_con<n:
-            tiny=current
-            if data[first_con]<data[tiny]:
-                tiny=first_con
-            if second_con<n and data[second_con]<data[tiny]:
-                tiny=second_con
-            if tiny!=current:
-                swap=data[tiny]
-                data[tiny]=data[current]
-                data[current]=swap
-                swaps.append((current, tiny))
-                current=tiny
-                first_con=2*current+1
-                second_con=2*current+2
-            else:
-                break
+        if first_con<n and data[first_con]<data[current]:
+            current=first_con
+        if second_con<n and data[second_con]<data[current]:
+            current=second_con
+        if current!=i:
+            swap=data[i]
+            data[i]=data[current]
+            data[current]=swap
+            swaps.append((current, i))
+            current=i
+            first_con=2*current+1
+            second_con=2*current+2
+            if first_con<n and data[first_con]<data[current]:
+                current=first_con
+            if second_con<n and data[second_con]<data[current]:
+                current=second_con
     return swaps
 
 
