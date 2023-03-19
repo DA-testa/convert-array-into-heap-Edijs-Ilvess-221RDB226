@@ -20,6 +20,9 @@ def build_heap(n, data):
                 data[tiny]=data[current]
                 data[current]=swap
                 swaps.append((current, tiny))
+                current = tiny
+                first_con=2*current+1
+                second_con=2*current+2
             else:
                 break
 
