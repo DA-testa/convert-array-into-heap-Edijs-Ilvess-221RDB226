@@ -36,12 +36,12 @@ def main():
     if input_IF[0]=="I":
         # input from keyboard
         n = int(input())
-        data = list(map(int, input().strip().split()))
+        data = list(map(int, input().split()))
     elif input_IF[0]=="F":
         tests=input()
         with open("test/"+tests) as f:
             n = int(f.readline())
-            data = list(map(int, f.readline().strip().split()))
+            data = list(map(int, f.readline().split()))
     else:
         print("I/F error")
 
