@@ -5,36 +5,41 @@ def build_heap(data):
     n=len(data)
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
-    for i in range(n//2,-1,-1):
+    for i in range(n):
         current=i
+        while current>0:
+            par=(current=1)//2
+            if data[current]>data[par]:
+                break
+            swap=data[current]
+            data[current]=data[par]
+            data[par]=swap
+            swaps.append((par,current))
+            current=par
+    return swaps
+def sort_heap(data):
+    swaps=build_heap(data)
+    n=len(data)
+    for i in range(n-1,0,-1):
+        current=0
+        swap=data[0]
+        data[0]=data[i]
+        data[i]=swap
+        swaps.append((0,i))
+    while True:
         first_con=2*current+1
         second_con=2*current+2
-        if first_con<n and data[first_con]>data[current]:
-            current=first_con
-        if second_con<n and data[second_con]>data[current]:
-            current=second_con
-        if current!=i:
-            swap=data[i]
-            data[i]=data[current]
-            data[current]=swap
-            swaps.append((i,current))
-            while True:
-                i=current
-                first_con=2*current+1
-                second_con=2*current+2
-                if first_con<n and data[first_con]>data[current]:
-                    current=first_con
-                if second_con<n and data[second_con]>data[current]:
-                    current=second_con
-                if current!=i:
-                    swap=data[i]
-                    data[i]=data[current]
-                    data[current]=swap
-                    swaps.append((i,current))
-                else:
-                    break
+        if first_con<i and data[first_con]<data[mini]:
+            mini=first_con
+        if second_con<i and data[second_con]<data[mini]:
+            mini=second_con
+        if current!=mini:
+            swap=data[current]
+            data[current]=data[mini]
+            data[mini]=swap
+            swaps.append((current,mini))
+            current=mini
     return swaps
-
 
 def main():
     
