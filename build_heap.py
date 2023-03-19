@@ -20,8 +20,8 @@ def build_heap(n, data):
                 data[tiny]=data[current]
                 data[current]=swap
                 swaps.append((current, tiny))
-           else:
-            break
+            else:
+                break
 
 
     return swaps
