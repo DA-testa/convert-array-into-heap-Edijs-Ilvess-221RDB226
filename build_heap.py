@@ -8,11 +8,11 @@ def build_heap(n, data):
         current=i
         first_con=2*current+1
         second_con=2*current+2
-        while n>first_con:
+        while first_con<n:
             tiny=current
             if data[first_con]<data[tiny]:
                 tiny=first_con
-            if n>second_con:
+            if second_con<n:
                 if data[second_con]<data[tiny]:
                     tiny=second_con
             if tiny!=current:
