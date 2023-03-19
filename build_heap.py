@@ -1,6 +1,6 @@
 # python3
 
-def build_heap(n, data):
+def build_heap(data, n):
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
@@ -12,21 +12,18 @@ def build_heap(n, data):
             tiny=current
             if data[first_con]<data[tiny]:
                 tiny=first_con
-            if second_con<n:
-                if data[second_con]<data[tiny]:
-                    tiny=second_con
+            if second_con<n and data[second_con]<data[tiny]:
+                tiny=second_con
             if tiny!=current:
                 swap=data[tiny]
                 data[tiny]=data[current]
                 data[current]=swap
                 swaps.append((current, tiny))
-                current = tiny
+                current=tiny
                 first_con=2*current+1
                 second_con=2*current+2
             else:
                 break
-
-
     return swaps
 
 
@@ -56,7 +53,7 @@ def main():
 
     # calls function to assess the data 
     # and give back all swaps
-    swaps = build_heap(data)
+    swaps = build_heap(data, n)
 
     # TODO: output how many swaps were made, 
     # this number should be less than 4n (less than 4*len(data))
