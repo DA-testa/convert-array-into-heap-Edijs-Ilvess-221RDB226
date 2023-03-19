@@ -17,16 +17,22 @@ def build_heap(data):
             swap=data[i]
             data[i]=data[current]
             data[current]=swap
-            swaps.append((i, current))
-            current=i
-            first_con=2*current+1
-            second_con=2*current+2
-            if first_con<n and data[first_con]>data[current]:
-                current=first_con
-            if second_con<n and data[second_con]>data[current]:
-                current=second_con
-            else:
-                break
+            swaps.append((i,current))
+            while True:
+                i=current
+                first_con=2*current+1
+                second_con=2*current+2
+                if first_con<n and data[first_con]>data[current]:
+                    current=first_con
+                if second_con<n and data[second_con]>data[current]:
+                    current=second_con
+                if current!=i:
+                    swap=data[i]
+                    data[i]=data[current]
+                    data[current]=swap
+                    swaps.append((i,current))
+                else:
+                    break
     return swaps
 
 
