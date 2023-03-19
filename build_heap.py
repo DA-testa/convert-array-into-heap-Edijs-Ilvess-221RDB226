@@ -36,18 +36,14 @@ def main():
     if input_IF[0]=="I":
         # input from keyboard
         n = int(input())
-        data = list(map(int, input().split()))
+        data = list(map(int, input().strip().split()))
     elif input_IF[0]=="F":
         tests=input()
         with open("test/"+tests) as f:
             n = int(f.readline())
-            data = list(map(int, f.readline().split()))
+            data = list(map(int, f.readline().strip().split()))
     else:
         print("I/F error")
-        
-
-
-    
 
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n
