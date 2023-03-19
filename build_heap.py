@@ -1,6 +1,6 @@
 # python3
 
-def build_heap(data):
+def build_heap(n, data):
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
